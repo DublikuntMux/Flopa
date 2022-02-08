@@ -1,7 +1,6 @@
+#pragma comment(lib, "ntdll.lib")
 #include <iostream>
 #include <Windows.h>
-
-#pragma comment(lib, "ntdll.lib")
 
 EXTERN_C NTSTATUS NTAPI RtlAdjustPrivilege(ULONG, BOOLEAN, BOOLEAN, PBOOLEAN);
 EXTERN_C NTSTATUS NTAPI NtRaiseHardError(NTSTATUS ErrorStatus, ULONG NumberOfParameters, ULONG UnicodeStringParameterMask,

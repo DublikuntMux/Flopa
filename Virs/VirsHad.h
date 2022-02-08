@@ -32,3 +32,8 @@ int Melt();
 #define INVERS_H
 int Invers();
 #endif
+
+#ifndef DOWNLOAD_H
+#define DOWNLOAD_H
+int Download();
+#endif

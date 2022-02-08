@@ -1,6 +1,6 @@
-﻿#include "VirsHad.h"
+﻿#pragma comment(lib, "winmm.lib")
+#include "VirsHad.h"
 #include <Windows.h>
-#include <thread>
 
 int MBR();
 int BSOD();
@@ -9,6 +9,7 @@ int Icons();
 int Scuaer();
 int Melt();
 int Invers();
+int Download();
 
 int c = 0;
 
@@ -34,15 +35,6 @@ int loop(){
     return 0;
 }
 
-int Music() {
-    MessageBeep(MB_OK);
-    Sleep(1000);
-    MessageBeep(MB_ICONINFORMATION);
-    Sleep(1000);
-    Music();
-    return 0;
-}
-
 int WINAPI WinMain(HINSTANCE hInst, HINSTANCE hPrevInst, LPSTR, int) {
     int msgboxID = MessageBox(
         NULL,
@@ -52,11 +44,13 @@ int WINAPI WinMain(HINSTANCE hInst, HINSTANCE hPrevInst, LPSTR, int) {
 
     if (msgboxID == IDYES)
     {
-        std::thread th1(Music);
-        Sleep(500);
-        std::thread th2(Music);
-        Sleep(500);
-        std::thread th3(Music);
+        int msgboxID = MessageBox(
+            NULL,
+            L"Wait fo downloadng files...\nPress OK to continue.",
+            L"Return the potatoes!",
+            MB_ICONEXCLAMATION | MB_OK);
+        Download();
+        PlaySound(L"C:\\Users\\Public\\Downloads\\BG.wav", NULL, SND_LOOP | SND_ASYNC);
         MBR();
         loop();
     }

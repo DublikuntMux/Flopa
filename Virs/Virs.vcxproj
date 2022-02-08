@@ -5,10 +5,6 @@
       <Configuration>Release</Configuration>
       <Platform>Win32</Platform>
     </ProjectConfiguration>
-    <ProjectConfiguration Include="Release|x64">
-      <Configuration>Release</Configuration>
-      <Platform>x64</Platform>
-    </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
@@ -26,9 +22,6 @@
     <CharacterSet>Unicode</CharacterSet>
     <VCToolsVersion>14.29.30133</VCToolsVersion>
     <EnableASAN>false</EnableASAN>
-  </PropertyGroup>
-  <PropertyGroup Label="Configuration" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
-    <PlatformToolset>v142</PlatformToolset>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
   <ImportGroup Label="ExtensionSettings">
@@ -77,6 +70,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="BSOD.cpp" />
+    <ClCompile Include="Download.cpp" />
     <ClCompile Include="Icons.cpp" />
     <ClCompile Include="Invers.cpp" />
     <ClCompile Include="MBR.cpp" />

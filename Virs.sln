@@ -7,9 +7,11 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Virs", "Virs\Virs.vcxproj",
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Release|x64 = Release|x64
 		Release|x86 = Release|x86
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B402BA01-AC19-4B88-92FA-FCF7E926D148}.Release|x64.ActiveCfg = Release|Win32
 		{B402BA01-AC19-4B88-92FA-FCF7E926D148}.Release|x86.ActiveCfg = Release|Win32
 		{B402BA01-AC19-4B88-92FA-FCF7E926D148}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
