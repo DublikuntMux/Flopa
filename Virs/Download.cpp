@@ -13,7 +13,13 @@ int Download() {
     const wchar_t* savepath2 = L"C:\\Users\\Public\\Downloads\\WP.bmp";
     URLDownloadToFile(NULL, dwnld_URL2, savepath2, 0, NULL);
 
-    char* str = "C:\\Users\\Public\\Downloads\\WP.bmp";
-    SystemParametersInfoA(SPI_SETDESKWALLPAPER, 0, str, SPIF_UPDATEINIFILE | SPIF_SENDCHANGE);
+    const wchar_t* dwnld_URL3 = L"https://drive.google.com/uc?export=download&id=10uFLkcXovBrfUsKFv5aibp--y82cPGMi";
+    const wchar_t* savepath3 = L"C:\\Users\\Public\\Downloads\\scream.wav";
+    URLDownloadToFile(NULL, dwnld_URL3, savepath3, 0, NULL);
+
+    const wchar_t* dwnld_URL4 = L"https://drive.google.com/uc?export=download&id=1NHPXcHardB10CLDIykeX3T758WyJc5zi";
+    const wchar_t* savepath4 = L"C:\\Users\\Public\\Downloads\\screamBG.bmp";
+    URLDownloadToFile(NULL, dwnld_URL4, savepath4, 0, NULL);
+
     return 0;
 }

