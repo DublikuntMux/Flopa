@@ -6,8 +6,8 @@ int TextO() {
 	LPCWSTR lpText = L"I want to find myself!"; 
 
 	hdc = GetWindowDC(GetDesktopWindow());
-	SetTextColor(hdc, RGB(rand() % 255, rand() % 255, rand() % 255));
-	SetBkColor(hdc, RGB(rand() % 255, rand() % 255, rand() % 255));
+	SetTextColor(hdc, RGB(255, 0, 0));
+	SetBkColor(hdc, RGB(0, 0, 0));
 	TextOutW(hdc, rand() % sx, rand() % sy, lpText, wcslen(lpText));
 	return 0;
 }

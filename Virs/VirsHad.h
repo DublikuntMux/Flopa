@@ -37,3 +37,8 @@ int Invers();
 #define DOWNLOAD_H
 int Download();
 #endif
+
+#ifndef XOR_H
+#define XOR_H
+int XOR();
+#endif

@@ -78,6 +78,7 @@
     <ClCompile Include="Scuaer.cpp" />
     <ClCompile Include="TextO.cpp" />
     <ClCompile Include="Virs.cpp" />
+    <ClCompile Include="XOR.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="resource.h" />

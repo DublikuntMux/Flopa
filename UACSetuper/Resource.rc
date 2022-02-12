@@ -47,22 +47,12 @@ END
 
 /////////////////////////////////////////////////////////////////////////////
 //
-// Icon
-//
-
-// Icon with lowest ID value placed first to ensure application icon
-// remains consistent on all systems.
-IDI_ICON1               ICON                    "icon1.ico"
-
-
-/////////////////////////////////////////////////////////////////////////////
-//
 // Version
 //
 
 VS_VERSION_INFO VERSIONINFO
- FILEVERSION 1,0,6,7
- PRODUCTVERSION 1,0,6,7
+ FILEVERSION 1,0,3,0
+ PRODUCTVERSION 1,0,3,0
  FILEFLAGSMASK 0x3fL
 #ifdef _DEBUG
  FILEFLAGS 0x1L
@@ -75,23 +65,33 @@ VS_VERSION_INFO VERSIONINFO
 BEGIN
     BLOCK "StringFileInfo"
     BEGIN
-        BLOCK "000904b0"
+        BLOCK "040904b0"
         BEGIN
             VALUE "CompanyName", "Dublikunt"
-            VALUE "FileDescription", "I love potatoes"
-            VALUE "FileVersion", "1.0.6.7"
-            VALUE "InternalName", "Flopa.exe"
+            VALUE "FileDescription", "Flopa.exe setup"
+            VALUE "FileVersion", "1.0.3.0"
+            VALUE "InternalName", "UACSetup.exe"
             VALUE "LegalCopyright", "Copyright (C) 2022"
-            VALUE "OriginalFilename", "Flopa.exe"
-            VALUE "ProductName", "Flopa"
-            VALUE "ProductVersion", "1.0.6.7"
+            VALUE "OriginalFilename", "UACSetup.exe"
+            VALUE "ProductName", "Flopa.exe"
+            VALUE "ProductVersion", "1.0.3.0"
         END
     END
     BLOCK "VarFileInfo"
     BEGIN
-        VALUE "Translation", 0x9, 1200
+        VALUE "Translation", 0x409, 1200
     END
 END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Icon
+//
+
+// Icon with lowest ID value placed first to ensure application icon
+// remains consistent on all systems.
+IDI_ICON1               ICON                    "icon1.ico"
 
 #endif    // Русский (Россия) resources
 /////////////////////////////////////////////////////////////////////////////
