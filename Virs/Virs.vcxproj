@@ -44,11 +44,11 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <FavorSizeOrSpeed>Size</FavorSizeOrSpeed>
+      <FavorSizeOrSpeed>Speed</FavorSizeOrSpeed>
       <LanguageStandard>stdcpp17</LanguageStandard>
       <LanguageStandard_C>stdc17</LanguageStandard_C>
       <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
-      <StructMemberAlignment>8Bytes</StructMemberAlignment>
+      <StructMemberAlignment>Default</StructMemberAlignment>
       <ControlFlowGuard>Guard</ControlFlowGuard>
       <EnableParallelCodeGeneration>
       </EnableParallelCodeGeneration>
@@ -69,6 +69,7 @@
     </Manifest>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Admin.cpp" />
     <ClCompile Include="BSOD.cpp" />
     <ClCompile Include="Download.cpp" />
     <ClCompile Include="Icons.cpp" />

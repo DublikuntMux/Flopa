@@ -42,3 +42,8 @@ int Download();
 #define XOR_H
 int XOR();
 #endif
+
+#ifndef ADMIN_H
+#define ADMIN_H
+int Admin();
+#endif
