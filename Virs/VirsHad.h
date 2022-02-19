@@ -10,7 +10,7 @@ int BSOD();
 
 #ifndef TEXTO_H
 #define TEXTO_H
-int TextO();
+int TextO(LPCWSTR lpText);
 #endif
 
 #ifndef ICONS_H
@@ -20,7 +20,7 @@ int Icons();
 
 #ifndef SCUAER_H
 #define SCUAER_H
-int Scuaer();
+int Scuaer(int red, int green, int blue);
 #endif
 
 #ifndef MELT_H
@@ -38,12 +38,12 @@ int Invers();
 int Download();
 #endif
 
-#ifndef XOR_H
-#define XOR_H
-int XOR();
-#endif
-
 #ifndef ADMIN_H
 #define ADMIN_H
 int Admin();
+#endif
+
+#ifndef DC_H
+#define DC_H
+int DemonCrypt();
 #endif
