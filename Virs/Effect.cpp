@@ -2,6 +2,8 @@
 
 int x = 1920, y = 1080;
 HDC hdc = GetWindowDC(GetDesktopWindow());
+HWND DesktopWindow = GetDesktopWindow();
+struct tagRECT Rect;
 HBRUSH hBrush;
 
 int Icons() {
