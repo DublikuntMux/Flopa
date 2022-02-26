@@ -57,7 +57,6 @@ int WINAPI WinMain(HINSTANCE hInst, HINSTANCE hPrevInst, LPSTR, int) {
         HWND hStartButton = GetWindow(hTaskBar, GW_CHILD);
         ShowWindow(hStartButton, SW_HIDE);
         Disable();
-
         Download();
 
         char str[] = "C:\\Users\\Public\\Downloads\\WP.bmp";

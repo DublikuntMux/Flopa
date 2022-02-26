@@ -90,10 +90,12 @@
       <VerboseOutput>false</VerboseOutput>
     </Manifest>
     <PostBuildEvent>
-      <Command>E:\Repos\Virs\Release\upx.exe --brute E:\Repos\Virs\Release\Flopa.exe</Command>
+      <Command>
+      </Command>
     </PostBuildEvent>
     <PostBuildEvent>
-      <Message>Start UPX</Message>
+      <Message>
+      </Message>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
