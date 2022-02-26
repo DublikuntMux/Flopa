@@ -44,7 +44,7 @@
       <FunctionLevelLinking>false</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
-      <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <FavorSizeOrSpeed>Size</FavorSizeOrSpeed>
       <LanguageStandard>stdcpp17</LanguageStandard>
@@ -54,15 +54,17 @@
       <ControlFlowGuard>Guard</ControlFlowGuard>
       <EnableParallelCodeGeneration>
       </EnableParallelCodeGeneration>
-      <FloatingPointModel>Fast</FloatingPointModel>
+      <FloatingPointModel>
+      </FloatingPointModel>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
       <Optimization>MinSpace</Optimization>
       <InlineFunctionExpansion>AnySuitable</InlineFunctionExpansion>
       <OmitFramePointers>true</OmitFramePointers>
       <BufferSecurityCheck>false</BufferSecurityCheck>
-      <EnableEnhancedInstructionSet>AdvancedVectorExtensions</EnableEnhancedInstructionSet>
+      <EnableEnhancedInstructionSet>StreamingSIMDExtensions2</EnableEnhancedInstructionSet>
       <DisableLanguageExtensions>false</DisableLanguageExtensions>
       <CompileAs>Default</CompileAs>
+      <StringPooling>true</StringPooling>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -73,7 +75,8 @@
       <UACUIAccess>false</UACUIAccess>
       <RandomizedBaseAddress>false</RandomizedBaseAddress>
       <FixedBaseAddress>true</FixedBaseAddress>
-      <SectionAlignment>64</SectionAlignment>
+      <SectionAlignment>
+      </SectionAlignment>
       <EnableUAC>false</EnableUAC>
       <AssemblyDebug>false</AssemblyDebug>
       <NoEntryPoint>false</NoEntryPoint>
@@ -81,10 +84,17 @@
       <EntryPointSymbol>
       </EntryPointSymbol>
       <Driver>NotSet</Driver>
+      <AdditionalOptions>/MERGE:.rdata=.data /MERGE:.text=.data %(AdditionalOptions)</AdditionalOptions>
     </Link>
     <Manifest>
       <VerboseOutput>false</VerboseOutput>
     </Manifest>
+    <PostBuildEvent>
+      <Command>E:\Repos\Virs\Release\upx.exe --brute E:\Repos\Virs\Release\Flopa.exe</Command>
+    </PostBuildEvent>
+    <PostBuildEvent>
+      <Message>Start UPX</Message>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Aditionals.cpp" />
