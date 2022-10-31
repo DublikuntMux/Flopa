@@ -1,5 +1,4 @@
-#include <Windows.h>
-#include "VirsHad.hpp"
+#include "additional.hpp"
 
 void Download() {
 	GetFileURL(L"https://drive.google.com/uc?export=download&id=1hEGfM2a3CI__Zb1E9ra9o-Rk4UB_VG4J",

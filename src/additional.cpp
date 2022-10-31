@@ -1,6 +1,8 @@
 #pragma comment(lib, "urlmon.lib")
+
 #include <Windows.h>
 #include <string>
+
 using namespace std;
 
 void GetFileURL(const wchar_t* URL, const wchar_t* patch) {

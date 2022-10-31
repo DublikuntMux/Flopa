@@ -1,14 +1,18 @@
-cmake_minimum_required(VERSION 3.21)
-project(Flopa VERSION 1.0.7.3)
+cmake_minimum_required(VERSION 3.0.0)
+project(Flopa VERSION 1.0.5)
 
-set(CMAKE_CXX_STANDARD 11)
+add_executable(Flopa 
+    src/main.cpp 
+    src/additional.cpp
+    src/additional.hpp
+    src/effect.cpp
+    src/effect.hpp
+    src/killer.cpp
+    src/killer.hpp
+    src/misc.cpp
+    src/misc.hpp
+)
 
-include_directories(Source)
-
-add_executable(Flopa
-        Source/Additional.cpp
-        Source/Effect.cpp
-        Source/Killer.cpp
-        Source/Misc.cpp
-        Source/Virs.cpp
-        Source/VirsHad.hpp)
+set(CPACK_PROJECT_NAME ${PROJECT_NAME})
+set(CPACK_PROJECT_VERSION ${PROJECT_VERSION})
+include(CPack)
