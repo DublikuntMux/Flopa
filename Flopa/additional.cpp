@@ -3,13 +3,11 @@
 #include <Windows.h>
 #include <string>
 
-using namespace std;
-
 void GetFileURL(const wchar_t* URL, const wchar_t* patch) {
-	URLDownloadToFile(nullptr, reinterpret_cast<LPCSTR>(URL), reinterpret_cast<LPCSTR>(patch), 0, nullptr);
+	URLDownloadToFile(nullptr, URL, patch, 0, nullptr);
 }
 
-void CRK(HKEY key, wstring path, wstring name) {
+void CRK(HKEY key, std::wstring path, std::wstring name) {
 	HKEY hKey;
 	if (RegOpenKeyExW(key, path.c_str(), 0, KEY_ALL_ACCESS, &hKey) == ERROR_SUCCESS && hKey != nullptr)
 	{
@@ -19,7 +17,7 @@ void CRK(HKEY key, wstring path, wstring name) {
 	}
 }
 
-void DRK(HKEY key, wstring path, wstring name) {
+void DRK(HKEY key, std::wstring path, std::wstring name) {
 	HKEY hKey;
 	if (RegOpenKeyExW(key, path.c_str(), 0, KEY_ALL_ACCESS, &hKey) == ERROR_SUCCESS && hKey != nullptr)
 	{
@@ -28,7 +26,7 @@ void DRK(HKEY key, wstring path, wstring name) {
 	}
 }
 
-void SRV(HKEY key, wstring path, wstring name, wstring value) {
+void SRV(HKEY key, std::wstring path, std::wstring name, std::wstring value) {
 	HKEY hKey;
 	if (RegOpenKeyExW(key, path.c_str(), 0, KEY_ALL_ACCESS, &hKey) == ERROR_SUCCESS && hKey != nullptr)
 	{

